@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <style>
+        /* Background gradient and animation */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffb7d5, #e4b3ff, #ffd1f7);
+            background-size: 300% 300%;
+            animation: bgShift 10s ease-in-out infinite alternate;
+            overflow: hidden;
+        }
+
+        @keyframes bgShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Floating hearts container */
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* allows clicking form */
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: floatUp linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.6);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Login box */
+        .login-box {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            width: 320px;
+            border-radius: 25px;
+            box-shadow: 0 0 20px rgba(255,0,130,0.3);
+            backdrop-filter: blur(6px);
+            animation: fadeIn 1.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #d63384;
+            text-shadow: 0 0 6px rgba(255,0,120,0.4);
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #88004e;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #ff3e9e;
+            box-shadow: 0 0 10px rgba(255,0,130,0.5);
+        }
+
+        small {
+            display: block;
+            font-style: italic;
+            color: #88004e;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: #ff4d94;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 15px rgba(255,0,120,0.6);
+        }
+
+        ::placeholder {
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Floating hearts -->
+<div class="hearts" id="heartsContainer"></div>
+
+<div class="login-box">
+    <h2>💌 Login 💌</h2>
+
+    <form onsubmit="return validateLogin()">
+        <label>Username ❤️</label>
+        <input type="text" id="username" placeholder="Hint: Name of the person you love" required>
+        <small>Clue: Type the name of the person you love ❤️</small>
+
+        <label>Password 🍲</label>
+        <input type="password" id="password" placeholder="Hint: His favorite food" required>
+        <small>Clue: Type his favorite food 🍲</small>
+
+        <button type="submit">Login 💖</button>
+    </form>
+</div>
+
+<script>
+    // Floating hearts generator
+    const heartsContainer = document.getElementById('heartsContainer');
+    const heartEmojis = ['💗','💖','💘','💞','💓'];
+    
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = (15 + Math.random()*30) + 'px';
+        heart.style.animationDuration = (5 + Math.random()*5) + 's';
+        heartsContainer.appendChild(heart);
+        
+        // Remove heart after it floats up
+        setTimeout(() => {
+            heartsContainer.removeChild(heart);
+        }, (5 + Math.random()*5)*1000);
+    }
+
+    setInterval(createHeart, 400); // create heart every 0.4 seconds
+
+    // Login validation
+    function validateLogin() {
+        let user = document.getElementById("username").value.trim();
+        let pass = document.getElementById("password").value.trim();
+
+        const validUser1 = "Emmanuel Ayiku Nartey";
+        const validUser2 = "Emanie";
+        const validPassword = "jollof"; // favorite food
+
+        if ((user === validUser1 || user === validUser2) && pass === validPassword) {
+            window.location.href = "hidden message.html"; // redirect
+            return false;
+        } else {
+            alert("Incorrect login details. Try again.");
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>

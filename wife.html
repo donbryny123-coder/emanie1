@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>wife.com</title>
+
+    <style>
+        /* Background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffb7d5, #e4b3ff, #ffd1f7);
+            height: 100%;
+            background-size: 300% 300%;
+            animation: bgMove 8s ease-in-out infinite alternate;
+            overflow-x: hidden;
+        }
+
+        /* Smooth background animation */
+        @keyframes bgMove {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
+        /* Floating hearts */
+        .hearts span {
+            position: absolute;
+            font-size: 30px;
+            animation: heartFloat 6s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes heartFloat {
+            0% { transform: translateY(100vh) scale(0.6); opacity: 0.2; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 1; }
+        }
+
+        /* Form Container */
+        .container {
+            background: rgba(255, 255, 255, 0.92);
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(255, 0, 130, 0.3);
+            backdrop-filter: blur(6px);
+            animation: fadeIn 1.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #d63384;
+            text-shadow: 0 0 6px rgba(255, 0, 120, 0.4);
+        }
+
+        p {
+            color: #88004e;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ff8fc7;
+            border-radius: 10px;
+            resize: vertical;
+            outline: none;
+            margin-top: 5px;
+        }
+
+        textarea:focus {
+            box-shadow: 0 0 12px #ff3e9e;
+            border-color: #ff3e9e;
+        }
+
+        input[type="submit"] {
+            background: #ff4d94;
+            color: white;
+            padding: 14px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        input[type="submit"]:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 20px rgba(255, 0, 130, 0.6);
+        }
+
+        /* Heart pop on hover */
+        input[type="submit"]:hover::after {
+            content: " 💖";
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Hearts -->
+    <div class="hearts">
+        <span style="left:10%;">💗</span>
+        <span style="left:50%; animation-duration: 7s;">💖</span>
+        <span style="left:80%; animation-duration: 5s;">💘</span>
+    </div>
+
+    <div class="container">
+        <h1>GF SUMMARY SHEET</h1>
+
+        <form method="submit">
+            <p>1. What is your favorite thing about me?</p>
+            <textarea name="favorite" placeholder="should be something nice"></textarea>
+
+            <p>2. What are your expectations in this?</p>
+            <textarea name="expectations" placeholder="curious about this🙂" required></textarea>
+
+            <p>3. Summarize your favorite book?</p>
+            <textarea name="favorite book" required></textarea>
+
+            <p>4. What is your take on people who are into tech...(I mean IT nerds)?</p>
+            <textarea name="IT nerds" placeholder="Be nice"></textarea>
+
+            <p>5. Summarize your favorite bible verse</p>
+            <textarea name="bible verse" placeholder="more than 150 words"></textarea>
+
+            <p>6. What is your favorite sports?</p>
+            <input type="radio" name="sports" value="football"> Football
+            <input type="radio" name="sports" value="ampe"> Ampe
+            <input type="radio" name="sports" value="athletics"> Athletics
+            <input type="radio" name="sports" value="fighting"> Fighting 🤣😂
+            <textarea name="unknown" placeholder="If your sport wasn't listed, type here 😒🤕"></textarea>
+
+            <p>7. What is your hidden talent?</p>
+            <textarea name="Hidden talent" placeholder="type here"></textarea>
+
+            <p>8. Aside Mathematics😂, what is your second favorite subject?</p>
+            <textarea name="Aside Mathematics😂" placeholder="type here"></textarea>
+
+            <p>9. How is your bestie doing (Kwabena I mean)?</p>
+            <textarea name="bestie" placeholder="type here"></textarea>
+
+            <p>10. Tell Mr. Inspector I said hi</p>
+            <textarea name="Mr. Inspector" placeholder="This space is for Mr. Inspector"></textarea>
+
+            <p>11. Who is your guy?</p>
+            <textarea name="guy" placeholder="hmmm......."></textarea>
+
+            <h2>AOB (Any Other Business)</h2>
+            <p>This could be anything — something you want to tell me or a question you want to ask me.</p>
+            <textarea name="AOB" placeholder="type here..."></textarea><br><br

@@ -1,0 +1,142 @@
+<body>
+<div class="hearts"></div>
+
+<div class="card">
+    <h1>Girlfriend application form</h1>
+    <form action="submit">
+        <label>What am I to you???</label>
+        <input type="radio" name="relationship" value="Friend😁">Friend😁   
+        <input type="radio" name="relationship" value="Enemy😒">Enemy😒  
+        <input type="radio" name="relationship" value="4l❤️">4l❤️<br> 
+
+        <label>Why do you want to be my girlfriend???</label><br>   
+        <textarea name="reason" rows="4" cols="50" placeholder="state your reasons here..."></textarea><br>     
+
+        <label>What will you bring to the relationship???</label><br>   
+        <textarea name="contribution" rows="4" cols="50" placeholder="state what you will bring to the relationship..."></textarea><br>     
+
+        <input type="submit" value="Submit Application">
+    </form><br>
+
+    <p>Okay so I have a link which will take you to another question and answers<br>
+        <a href="wife.html">Click to the next page</a>
+    </p>
+</div>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffb7d5, #e4b3ff, #ffd1f7);
+    animation: bgShift 10s infinite alternate ease-in-out;
+    overflow: hidden;
+}
+
+/* Animated background */
+@keyframes bgShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Floating Hearts */
+.hearts::before,
+.hearts::after {
+    content: "💗";
+    position: absolute;
+    font-size: 40px;
+    animation: floatHearts 6s linear infinite;
+    opacity: 0.6;
+}
+
+.hearts::after {
+    left: 70%;
+    animation-duration: 8s;
+}
+
+@keyframes floatHearts {
+    from { 
+        transform: translateY(100vh) translateX(0); 
+        opacity: 0.2; 
+    }
+    to { 
+        transform: translateY(-10vh) translateX(-20px); 
+        opacity: 0.9; 
+    }
+}
+
+/* Form Card */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    width: 60%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(255, 0, 100, 0.3);
+    animation: fadeIn 1.3s ease;
+    backdrop-filter: blur(6px);
+}
+
+/* Fade effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Text */
+h1 {
+    text-align: center;
+    color: #d63384;
+    text-shadow: 0 0 8px rgba(255, 0, 120, 0.6);
+    font-size: 32px;
+    text-decoration: underline wavy #ff5fa2;
+}
+
+label {
+    font-weight: bold;
+    color: #b3005e;
+    margin-top: 12px;
+}
+
+/* Inputs */
+textarea {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid #ff8fc7;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #ff3e9e;
+    box-shadow: 0 0 10px pink;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background: #ff4d94;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform .3s, box-shadow .3s;
+}
+
+input[type="submit"]:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 15px rgba(255, 0, 120, 0.6);
+}
+
+/* Heart pop on hover */
+input[type="submit"]:hover::after {
+    content: " 💖";
+}
+</style>
+</body>
